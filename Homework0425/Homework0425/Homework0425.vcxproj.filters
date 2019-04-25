@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{35b87e66-266f-4209-8b93-fd70c22fe52a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Channels">
+      <UniqueIdentifier>{04fe0fc0-65d6-475b-9e92-742fc255e1a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ETC">
+      <UniqueIdentifier>{0e2872fe-cc8a-45b5-a534-a9dcc3b50a44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tv.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="remotecontroller.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="channelfactory.cpp">
+      <Filter>Classes\Channels</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="channel.h">
+      <Filter>Classes\Channels</Filter>
+    </ClInclude>
+    <ClInclude Include="channelfactory.h">
+      <Filter>Classes\Channels</Filter>
+    </ClInclude>
+    <ClInclude Include="tv.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="remotecontroller.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="typedef.h">
+      <Filter>ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="sportchannel.h">
+      <Filter>Classes\Channels</Filter>
+    </ClInclude>
+    <ClInclude Include="lifechannel.h">
+      <Filter>Classes\Channels</Filter>
+    </ClInclude>
+    <ClInclude Include="comedychannel.h">
+      <Filter>Classes\Channels</Filter>
+    </ClInclude>
+    <ClInclude Include="shoppingchannel.h">
+      <Filter>Classes\Channels</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
