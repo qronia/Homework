@@ -45,6 +45,8 @@ bool TV::AddChannel(uint channelNumber, Channel* newChannel)
 		currentChannel = channelNumber;
 		channelExist = true;
 	}
+	// 가리키고 있던 채널 번호에 생성한 것이라면 가리키고 있는 채널은 존재하게 되므로,
+	else if (currentChannel == channelNumber) channelExist = true;
 	return true;
 }
 
