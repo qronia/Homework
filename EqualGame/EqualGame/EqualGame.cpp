@@ -25,23 +25,24 @@ void EqualGame::DeleteBoard()
 	board = nullptr;
 }
 
-// 보드를 만듭니다.
+
+//보드를 만듭니다.
 bool EqualGame::MakeBoard(int sizeX, int sizeY, int typeCount)
 {
-	if ( sizeX < 1 || sizeY < 1 || typeCount < 2 // 인수들이 최소량을 갖는지 검사
-		|| ((sizeX*sizeY) & 1) )  // 카드의 개수가 홀수가 되면 짝이 안맞기 때문에 거부해야함
+	if (sizeX < 1 || sizeY < 1 || typeCount < 2 // 인수들이 최소량을 갖는지 검사
+		|| ((sizeX*sizeY) & 1))  // 카드의 개수가 홀수가 되면 짝이 안맞기 때문에 거부해야함
 		return false;
 
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
 
-	int i,j=sizeX*sizeY/2,k;
+	int i, j = sizeX * sizeY / 2, k;
 	int *cards = new int[typeCount] {0, };
 
 	// 랜덤 생성기를 초기화하고, 카드의 개수를 랜덤으로 만듭니다.
 	// 카드는 짝이 맞아야하기 때문에 2개씩 넣습니다.
 	srand(time(NULL));
-	while (j--)	cards[ rand()%typeCount] += 2;
+	while (j--)	cards[rand() % typeCount] += 2;
 
 	// 먼저 보드를 생성하기 전, 이전 보드 내용을 삭제해야합니다.
 	// NULLPTR 체크는 DeleteBoard()에서 하므로 여기서 한번더 할 필요는 없습니다.
@@ -134,6 +135,7 @@ EqualGame::Input EqualGame::InputKey()
 }
 
 
+
 // 게임을 시작합니다. 외부에 알려집니다.
 void EqualGame::GameStart()
 {
@@ -146,7 +148,16 @@ void EqualGame::GameStart()
 
 	// 보드를 생성하고, 카드의 갯수를 셉니다.
 	// 보드 생성 실패시, 게임을 실행시키지 않습니다.
-	if(!MakeBoard(5, 4, 8)) return;
+	//if(!MakeBoard(5, 4, 8)) return;
+
+	std::cout << "가로의 길이를 입력하세요:";
+	std::cin >> sizeX;
+	std::cout << "세로의 길이를 입력하세요:";
+	std::cin >> sizeY;
+
+	if (!MakeBoard(sizeX, sizeY, 8))return;
+	
+
 	remainPair = (sizeX * sizeY) / 2;
 
 	// 보드의 위치 하드코딩.

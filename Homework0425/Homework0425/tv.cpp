@@ -153,6 +153,7 @@ void TV::TogglePower() { power = !power; }
 
 // 이용 -> 시청!
 void TV::operator()() { View(); }
+
 void TV::View()
 {
 	std::cout << "====== TV ======\n";

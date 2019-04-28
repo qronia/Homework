@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <string>
 
 #include "tv.h"
 #include "channelfactory.h"
@@ -59,6 +60,118 @@ int main()
 	cout.flush();
 	getchar();
 
+
+	TV samsung;
+	TV lg;
+	RemoteController rc_lg;
+	RemoteController rc_samsung;
+
+	int sel1;
+	int channel;
+	int sel2;
+
+	lg.init(1, "LG");
+	samsung.init(5, "Samsung");
+	rc_lg.init(1, "LG");
+	rc_samsung.init(5, "Samsung");
+
+	while (1)
+
+	{
+
+		lg.information(); //init함수로 초기화 시켜준 값을 출력
+
+		samsung.information(); //init함수로 초기화 시켜준 값을 출력
+
+
+
+		cout << "어떤 TV의 채널을 바꿀건가요?  1. LG   2. Samsung  3. 안바꿈 " << endl;
+
+		cout << "선택  =======>>>";
+
+		cin >> sel1;
+
+
+
+		if (sel1 == 3)
+
+		{
+
+			exit(1);
+
+		}
+
+		cout << "어떤 리모콘을 사용할건가요?   1. LG   2. Samsung " << endl;
+
+		cout << "선택  =======>>>";
+
+		cin >> sel2;
+
+
+
+		cout << "몇번으로 바꿀건가요? " << endl;
+
+		cout << "선택  =======>>>";
+
+		cin >> channel;
+
+
+
+		switch (sel1) //== > 아직은 브랜드가 다른 리모콘을 선택하든 채널 변경가능
+
+		{
+
+		case 1:
+
+			if (sel2 == 1)
+
+			{
+
+				rc_lg.set_channel(channel);
+
+				lg.change_channel(rc_lg.get_channel());
+
+			}
+
+			else
+
+			{
+
+				rc_samsung.set_channel(channel);
+
+				lg.change_channel(rc_samsung.get_channel());
+
+			}
+
+			break;
+
+		case 2:
+
+			if (sel2 == 1)
+
+			{
+
+				rc_lg.set_channel(channel);
+
+				samsung.change_channel(rc_lg.get_channel());
+
+			}
+
+			else
+
+			{
+
+				rc_samsung.set_channel(channel);
+
+				samsung.change_channel(rc_samsung.get_channel());
+
+			}
+
+			break;
+		}
+		system("cls");
+	}
+
 	while (true)
 	{
 		system("cls");
@@ -100,6 +213,8 @@ int main()
 		default: break;
 		}
 	}
+
+
 
 
 	cout.flush();

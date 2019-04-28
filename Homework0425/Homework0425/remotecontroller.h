@@ -2,6 +2,7 @@
 
 #include "typedef.h"
 #include "tv.h"
+#include <string>
 
 /*
 	리모트 컨트롤러는 그저 TV를 지정하고 그 TV를 조작하는 것 말고는 하지 않습니다.
@@ -40,6 +41,28 @@ public:
 	void ResetTarget();
 	void SetTarget(TV* targetTV);
 
+public:
+	void init(int e_channel, char *e_brand)
+	{
+		channel = e_channel;
+		strcpy(brand, e_brand);
+	}
+	int get_channel()
+	{
+		return channel;
+	}
+	char *get_brand()
+	{
+		return brand;
+	}
+	//==== = > 리모콘에 입력된 채널을 TV 채널 변경전에 리모콘에 저장
+	void set_channel(int e_channel) 
+	{
+	channel = e_channel;
+	}
+
 private:
 	TV* targetTV;
+	int channel;
+	char brand[20];
 };

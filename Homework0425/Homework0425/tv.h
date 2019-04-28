@@ -24,7 +24,8 @@ class TV
 	friend RemoteController;
 
 public:
-	enum Setting : int {
+	enum Setting : int 
+	{
 		ChannelMin = 1,
 		ChannelMax = 99,
 
@@ -63,6 +64,34 @@ public:
 	void View();
 	void operator()();
 
+
+public:
+	void init(int e_channel, char *e_brand)
+	{
+		channel = e_channel;
+		strcpy(brand, e_brand);
+	}
+	int get_channel()
+	{
+		return channel;
+	}
+
+	char *get_brand()
+	{
+		return brand;     //brand가 주소값을 가지고 있으므로 그것을 참조해서 들어가야만
+		//brand명을 알수있으므로 *get_brand
+	}
+	void information()
+	{
+		cout << "=========TV 정보=========" << endl;
+		cout << "Brand  :  " << brand << endl;
+		cout << "Channel  :  " << channel << endl;
+	}
+	void change_channel(int e_channel)
+	{
+		channel = e_channel;
+	}
+
 	
 	// friend class인 RemoteController를 보조하기 위해 만든 메서드들로서,
 	// 메모리 참조 오류를 방지하고자 만들었습니다.
@@ -75,6 +104,8 @@ private:
 	std::map<uint, Channel*> channels;					// 등록된 채널들
 	std::list<RemoteController*> connectedController;	// 연결된 리모컨
 
+	int channel;                                        //채널
+	char brand[20];                                     //브랜드저장
 	bool power;											// 전원 
 	bool channelExist;									// 현재 가리키고 있는 채널이 존재하는가?
 	uint currentChannel;								// 현재 가리키고 있는 채널의 번호
